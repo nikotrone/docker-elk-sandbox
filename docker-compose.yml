@@ -1,4 +1,4 @@
-version: '2.2'
+version: '3.8'
 services:
   es01:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.11.1
@@ -72,12 +72,14 @@ services:
 
   cerebro:
     build: 
-      context: .
+      context: ./cerebro
       dockerfile: Dockerfile-cerebro
-
     # Instead of building the image locally,  can use:
     # image: yannart/cerebro:latest
 
+    container_name: cerebro
+    depends_on:
+      - es01
     ports:
       - "9000:9000"
     networks:
