@@ -3,28 +3,3 @@ RUN pip install elasticsearch-curator
 
 COPY . .
 CMD ["curator", "--config", "curator.yml", "actions.yml"]
-
-# ENV CURATOR_VERSION 5.8.3
-# RUN wget -O curator-${CURATOR_VERSION}.tgz https://github.com/elastic/curator/archive/V${CURATOR_VERSION}.tar.gz &&\
-#     tar zxvf curator-${CURATOR_VERSION}.tgz &&\
-#     rm curator-${CURATOR_VERSION}.tgz &&\
-#     mkdir curator-${CURATOR_VERSION}/logs &&\
-#     mv curator-${CURATOR_VERSION} curator
-
-# RUN apk --no-cache upgrade && apk --no-cache add build-base tar musl-utils openssl-dev
-# RUN pip3 install setuptools cx_Freeze
-
-# # COPY . .
-# WORKDIR curator
-# RUN ln -s /lib/libc.musl-x86_64.so.1 ldd
-# RUN ln -s /lib /lib64
-# RUN pip3 install -r requirements.txt
-# RUN python3 setup.py build_exe
-
-# FROM alpine:3.7
-# RUN apk --no-cache upgrade && apk --no-cache add openssl-dev
-# COPY --from=builder curator/build/exe.linux-x86_64-3.7 /curator/
-
-# USER nobody:nobody
-# ENV LD_LIBRARY_PATH /curator/lib:$LD_LIBRARY_PATH
-# # ENTRYPOINT ["/curator/curator"]

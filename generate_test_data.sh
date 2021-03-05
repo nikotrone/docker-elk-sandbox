@@ -1,5 +1,5 @@
 #!/bin/bash
-YEAR=2020
+YEAR=2021
 
 for MONTH in 0{1..9} {10..11}; 
 do 
@@ -12,10 +12,3 @@ do
         echo "$day-$month";
     done 
 done
-
-curl -XPUT "http://localhost:9200/_snapshot/my-repository" -H 'Content-Type: application/json' -d '{
-  "type": "fs",
-  "settings": {
-    "location": "tmp"
-  }
-}'
