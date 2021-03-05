@@ -12,3 +12,10 @@ do
         echo "$day-$month";
     done 
 done
+
+curl -XPUT "http://localhost:9200/_snapshot/my-repository" -H 'Content-Type: application/json' -d '{
+  "type": "fs",
+  "settings": {
+    "location": "tmp"
+  }
+}'

@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  curator:
+    build: 
+      context: .
+      dockerfile: Dockerfile-curator
+    container_name: curator
+
+    networks:
+      - elastic

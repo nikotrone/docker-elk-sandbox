@@ -5,6 +5,7 @@ services:
     container_name: es01
     environment:
       - node.name=es01
+      - path.repo=/tmp/backups
       - cluster.name=es-docker-cluster
       - discovery.seed_hosts=es02,es03
       - cluster.initial_master_nodes=es01,es02,es03
@@ -26,6 +27,7 @@ services:
     container_name: es02
     environment:
       - node.name=es02
+      - path.repo=/tmp/backups
       - cluster.name=es-docker-cluster
       - discovery.seed_hosts=es01,es03
       - cluster.initial_master_nodes=es01,es02,es03
@@ -45,6 +47,7 @@ services:
     container_name: es03
     environment:
       - node.name=es03
+      - path.repo=/tmp/backups
       - cluster.name=es-docker-cluster
       - discovery.seed_hosts=es01,es02
       - cluster.initial_master_nodes=es01,es02,es03
@@ -84,6 +87,11 @@ services:
       - "9000:9000"
     networks:
       - elastic
+  
+  curator:
+    extends:
+      file: ./curator/docker-compose.yml
+      service: curator
 
   probe:
     image: alpine
