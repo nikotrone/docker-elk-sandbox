@@ -15,3 +15,6 @@ Then you can point your browser to `localhost:9000` to access the Cerebro interf
 ```bash
     ./generate_test_data.sh
 ```
+
+## Running Curator
+To run the curator job you can just use `docker-compose up curator`
