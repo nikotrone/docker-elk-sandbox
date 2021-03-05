@@ -18,3 +18,6 @@ Then you can point your browser to `localhost:9000` to access the Cerebro interf
 
 ## Running Curator
 To run the curator job you can just use `docker-compose up curator`
+
+## Official documentation
+- [Curator Documentation](https://www.elastic.co/guide/en/elasticsearch/client/curator/5.8/index.html)
