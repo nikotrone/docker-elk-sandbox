@@ -1,9 +1,9 @@
 #!/bin/bash
 YEAR=2020
 
-for MONTH in {1..12}; 
+for MONTH in 0{1..9} {10..11}; 
 do 
-    for DAY in {1..28};
+    for DAY in 0{1..9} {10..28};
     do
         curl -XPUT "http://localhost:9200/testdata-$YEAR-$MONTH-$DAY/test/message" -H 'Content-Type: application/json' -d '{
  "answer": 42,
