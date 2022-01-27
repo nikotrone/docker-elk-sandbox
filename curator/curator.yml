@@ -1,7 +1,7 @@
 client:
   hosts:
-    - es01
-  port: 9200
+    - ${ELASTICSEARCH_HOST:localhost}
+  port: ${ELASTICSEARCH_PORT:9200}
   url_prefix:
   use_ssl: False
   certificate:

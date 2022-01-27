@@ -9,6 +9,6 @@ do
  "answer": 42,
  "message": "this is my test data"
 }'
-        echo "$day-$month";
+        echo "$DAY-$MONTH";
     done 
 done

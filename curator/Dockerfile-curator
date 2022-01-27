@@ -1,4 +1,11 @@
 FROM python:3.7-alpine3.7 as builder
+
+ENV ELASTICSEARCH_HOST localhost
+ENV ELASTICSEARCH_PORT 9200
+ENV DELETE_ACTION_PREFIX testdata-
+ENV DELETE_ACTION_TIME_UNIT days
+ENV DELETE_ACTION_TIME_AMOUNT 30
+
 RUN pip install elasticsearch-curator
 
 COPY . .

@@ -2,7 +2,7 @@ actions:
   1:
     action: delete_indices
     description: >-
-      Delete indices older than 30 days (based on index name), for test-
+      Delete indices older than DELETE_ACTION_TIME_AMOUNT DELETE_ACTION_TIME_UNIT (default 14 days), for testdata-
       prefixed indices. Ignore the error if the filter does not result in an
       actionable list of indices (ignore_empty_list) and exit cleanly.
     options:
@@ -10,10 +10,10 @@ actions:
     filters:
     - filtertype: pattern
       kind: prefix
-      value:  testdata-
+      value:  ${DELETE_ACTION_PREFIX:testdata-}
     - filtertype: age
       source: name
       direction: older
       timestring: '%Y-%m-%d'
-      unit: days
-      unit_count: 30
+      unit: ${DELETE_ACTION_TIME_UNIT:days}
+      unit_count: ${DELETE_ACTION_TIME_AMOUNT:14}
